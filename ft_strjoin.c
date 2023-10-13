@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 12:29:28 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/10 23:06:32 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/12 18:30:36 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/12 20:55:01 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	size_t	len;
 	size_t	i;
 	size_t	j;
+	char	*dest;
 
+	len = ft_strlen(s1) + ft_strlen(s2);
+	dest = (char *)malloc(sizeof(char) * len + 1);
+	if (!dest)
+		return (NULL);
 	i = 0;
-	while (dest[i])
-		i++;
-	if (dest_size == 0)
-		return (i);
 	j = 0;
-	while (src[j] && j < dest_size - i - 1)
+	while (s1[i] != '\0' && i < len)
 	{
-		dest[i] = src[j];
+		dest[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0' && i < len)
+	{
+		dest[i] = s2[j];
 		j++;
 		i++;
 	}
 	dest[i] = '\0';
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	j = 0;
-	while (dest[j] != '\0')
-		j++;
-	return (i + j);
+	return (dest);
 }

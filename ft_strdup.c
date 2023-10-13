@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 12:29:28 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/10 23:06:32 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/11 20:44:12 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/11 21:05:37 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
-{
-	size_t	i;
-	size_t	j;
+#include "libft.h"
 
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	char	*dest;
+
+	i = ft_strlen(s) + 1;
+	dest = (char *)malloc(sizeof(char) * i);
+	if (dest == 0)
+		return (0);
 	i = 0;
-	while (dest[i])
-		i++;
-	if (dest_size == 0)
-		return (i);
-	j = 0;
-	while (src[j] && j < dest_size - i - 1)
+	while (s[i] != '\0')
 	{
-		dest[i] = src[j];
-		j++;
+		dest[i] = s[i];
 		i++;
 	}
 	dest[i] = '\0';
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	j = 0;
-	while (dest[j] != '\0')
-		j++;
-	return (i + j);
+	return (dest);
 }

@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 12:29:28 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/10 23:06:32 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/11 19:42:28 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/11 19:59:42 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
-{
-	size_t	i;
-	size_t	j;
+#include "libft.h"
 
-	i = 0;
-	while (dest[i])
-		i++;
-	if (dest_size == 0)
-		return (i);
-	j = 0;
-	while (src[j] && j < dest_size - i - 1)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	*ch1;
+	unsigned char	*ch2;
+
+	if (n == 0)
 	{
-		dest[i] = src[j];
-		j++;
+		return (0);
+	}
+	i = 0;
+	ch1 = (unsigned char *)s1;
+	ch2 = (unsigned char *)s2;
+	while ((ch1[i] != '\0' && ch2[i] != '\0') && (ch1[i] == ch2[i])
+		&& (i < n - 1))
+	{
 		i++;
 	}
-	dest[i] = '\0';
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	j = 0;
-	while (dest[j] != '\0')
-		j++;
-	return (i + j);
+	return (ch1[i] - ch2[i]);
 }

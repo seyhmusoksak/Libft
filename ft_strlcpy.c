@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:27:39 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/08 15:57:32 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/11 00:06:35 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 	if (!dest || !src)
 		return (0);
 	len = 0;
-	while (src[len])
+	while (src[len] != '\0')
 		len++;
 	if (n == 0)
 	{

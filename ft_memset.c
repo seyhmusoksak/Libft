@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 21:37:19 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/04 17:49:02 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/11 21:07:00 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ void	*ft_memset(void *str, int c, size_t n)
 		i++;
 	}
 	return (str);
-
 }

@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 12:29:28 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/10 23:06:32 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/11 20:02:42 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/11 20:41:20 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+#include "libft.h"
+
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	while (dest[i])
-		i++;
-	if (dest_size == 0)
-		return (i);
-	j = 0;
-	while (src[j] && j < dest_size - i - 1)
+	if (!to_find)
 	{
-		dest[i] = src[j];
-		j++;
+		return ((char *)str);
+	}
+	i = 0;
+	while (str[i] != '\0' && i < len)
+	{
+		if (str[i] == to_find[0])
+		{
+			j = 0;
+			while (str[i + j] == to_find[j] && i + j < len)
+			{
+				if (to_find[j + 1] == '\0')
+					return ((char *)str + i);
+				j++;
+			}
+		}
 		i++;
 	}
-	dest[i] = '\0';
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	j = 0;
-	while (dest[j] != '\0')
-		j++;
-	return (i + j);
+	return (NULL);
 }

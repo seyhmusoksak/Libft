@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 12:29:28 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/10 23:06:32 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/11 00:40:02 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/11 18:56:54 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+#include "libft.h"
+
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		result;
+	int		sign;
 
 	i = 0;
-	while (dest[i])
+	sign = 1;
+	result = 0;
+	while ((str[i]) && (str[i] == '\n' || str[i] == '\t' || str[i] == '\f'
+			|| str[i] == '\v' || str[i] == '\r' || str[i] == ' '))
 		i++;
-	if (dest_size == 0)
-		return (i);
-	j = 0;
-	while (src[j] && j < dest_size - i - 1)
+	if (str[i] == '+' || str[i] == '-')
 	{
-		dest[i] = src[j];
-		j++;
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	dest[i] = '\0';
-	i = 0;
-	while (src[i] != '\0')
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - 48);
 		i++;
-	j = 0;
-	while (dest[j] != '\0')
-		j++;
-	return (i + j);
+	}
+	return (result * sign);
 }

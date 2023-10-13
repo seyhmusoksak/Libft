@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 12:29:28 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/10 23:06:32 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/11 19:06:58 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/11 19:42:11 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	size_t			i;
+	unsigned char	*tmp;
+	unsigned char	ch;
 
 	i = 0;
-	while (dest[i])
-		i++;
-	if (dest_size == 0)
-		return (i);
-	j = 0;
-	while (src[j] && j < dest_size - i - 1)
+	tmp = (unsigned char *)s;
+	ch = (unsigned char)c;
+	while (i < n)
 	{
-		dest[i] = src[j];
-		j++;
+		if (tmp[i] == ch)
+			return (&tmp[i]);
 		i++;
 	}
-	dest[i] = '\0';
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	j = 0;
-	while (dest[j] != '\0')
-		j++;
-	return (i + j);
+	return (NULL);
 }
