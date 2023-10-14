@@ -6,46 +6,31 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 21:03:15 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/12 23:19:44 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/14 22:55:43 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "ft_strlen.c"
-#include "ft_strchr.c"
+#include "libft.h"
 
 char	*ft_strtrim(char const *s, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	int 	i;
 	char	*dest;
 
-	end = ft_strlen(s) - 1;
-	start = 0;
-	while (ft_strchr(s, set[start]) && s[start])
+	if (s != NULL && set != NULL)
 	{
-		start++;
+		start = 0;
+		end = ft_strlen(s);
+		while (ft_strchr(set, s[start]) && s[start])
+			start++;
+		while (ft_strchr(set, s[end - 1]) && end > start)
+			end--;
+		dest = (char *)malloc(sizeof(char) * end - start + 1);
+		if (!dest)
+			return (NULL);
+		ft_strlcpy(dest, &s[start], end - start + 1);
+		return (dest);
 	}
-	while (ft_strchr(s, set[end]) && end >= 0)
-	{
-		end--;
-	}
-	dest = (char *)malloc(sizeof(char) * end - start + 1);
-	if (!dest)
-		return (0);
-	while (start < end)
-	{
-		dest[i] = s[start];
-		start++;
-		i++;
-	}
-	dest[start] = '\0';
-	return (dest);
-}
-
-int main ()
-{
-	printf("%s", ft_strtrim("abmerhaba", "ab"));
+	return (NULL);
 }
