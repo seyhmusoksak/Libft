@@ -6,9 +6,11 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:27:39 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/11 00:06:35 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/16 01:25:18 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {

@@ -6,10 +6,11 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 03:06:42 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/14 08:25:59 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/16 00:41:18 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 static int	ft_calculate(int n)
 {
