@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 02:21:56 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/16 14:18:31 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/16 14:09:44 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/16 14:14:29 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <fcntl.h>
+#include <unistd.h>
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void ft_putchar_fd(char c, int fd)
 {
-	unsigned int	i;
+	write(fd, &c, 1);
+}
 
-	if (!f || !s)
-		return ;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		f(i, &s[i]);
-		i++;
-	}
+int main()
+{
+	int fd = open("dosya.txt", O_CREAT | O_WRONLY);
+
+	ft_putchar_fd('c', fd);
 }
