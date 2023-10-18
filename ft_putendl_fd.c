@@ -6,13 +6,13 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:06:32 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/16 15:20:19 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/18 18:27:36 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	size_t	i;
 

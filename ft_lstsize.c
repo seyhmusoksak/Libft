@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 20:02:42 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/19 00:12:21 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/17 00:21:51 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/18 18:33:59 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+int	ft_lstsize(t_list *lst)
 {
 	size_t	i;
-	size_t	j;
 
-	if (to_find == NULL || *to_find == '\0')
-		return ((char *)str);
 	i = 0;
-	while (str[i] != '\0' && i < len)
+	while (lst)
 	{
-		if (str[i] == to_find[0])
-		{
-			j = 0;
-			while (str[i + j] == to_find[j] && i + j < len)
-			{
-				if (to_find[j + 1] == '\0')
-					return ((char *)str + i);
-				j++;
-			}
-		}
+		lst = lst->next;
 		i++;
 	}
-	return (NULL);
+	return (i);
 }

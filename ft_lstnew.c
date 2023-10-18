@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 20:02:42 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/19 00:12:21 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/16 18:38:46 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/17 00:18:13 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	j;
+	t_list	*tmp;
 
-	if (to_find == NULL || *to_find == '\0')
-		return ((char *)str);
-	i = 0;
-	while (str[i] != '\0' && i < len)
-	{
-		if (str[i] == to_find[0])
-		{
-			j = 0;
-			while (str[i + j] == to_find[j] && i + j < len)
-			{
-				if (to_find[j + 1] == '\0')
-					return ((char *)str + i);
-				j++;
-			}
-		}
-		i++;
-	}
-	return (NULL);
+	tmp = malloc(sizeof(t_list));
+	if (!tmp)
+		return (NULL);
+	tmp->content = content;
+	tmp->next = NULL;
+	return (tmp);
 }

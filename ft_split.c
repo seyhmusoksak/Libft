@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 01:06:16 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/14 23:20:36 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/18 19:45:52 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,12 @@ static	size_t	ft_countword(char const *s, char c)
 	size_t	count;
 
 	i = 0;
-	count = 1;
+	count = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-		{
+		if ((i == 0 && s[i] != c) || \
+			(s[i] == c && s[i + 1] != c && s[i + 1] != '\0'))
 			count++;
-		}
 		i++;
 	}
 	return (count);

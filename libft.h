@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 23:56:10 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/16 00:40:12 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/18 19:32:14 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_list{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int nb, int fd);
+void	ft_putstr_fd(char *s, int fd);
+
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+int		ft_lstsize(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 void	ft_bzero(void *str, size_t n);
 void	*ft_calloc(size_t nitems, size_t size);
