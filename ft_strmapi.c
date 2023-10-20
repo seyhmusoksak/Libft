@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 01:46:11 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/15 02:19:55 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/20 18:04:58 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	s_len = strlen(s);
+	s_len = ft_strlen(s);
 	dest = (char *)malloc(sizeof(char) * s_len + 1);
 	if (!dest)
 		return (NULL);
