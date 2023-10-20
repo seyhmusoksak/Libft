@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 23:22:42 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/19 19:43:28 by soksak           ###   ########.fr       */
+/*   Created: 2023/10/19 01:09:14 by soksak            #+#    #+#             */
+/*   Updated: 2023/10/19 19:39:34 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (lst && new)
+	t_list	*tmp;
+
+	if (!lst || !new)
+		return ;
+	if (!*lst)
 	{
-		new->next = *lst;
 		*lst = new;
+		return ;
 	}
+	tmp = *lst;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp ->next = new;
 }
