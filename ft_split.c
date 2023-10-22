@@ -6,7 +6,7 @@
 /*   By: soksak <soksak@42istanbul.com.tr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 01:06:16 by soksak            #+#    #+#             */
-/*   Updated: 2023/10/18 19:45:52 by soksak           ###   ########.fr       */
+/*   Updated: 2023/10/22 16:32:03 by soksak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	**ft_split(char const *s, char c)
 	char	**dest;
 
 	dest = (char **)malloc(sizeof(char *) * (ft_countword(s, c) + 1));
-	if (!dest)
+	if (!s || !dest)
 		return (NULL);
 	i = 0;
 	j = 0;
